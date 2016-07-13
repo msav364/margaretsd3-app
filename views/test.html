@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<style type="text/css">
+
+circle {
+  stroke: #000;
+}
+
+</style>
+
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+
+<script>
+
+  var width = 1200,
+      height = 800;
+
+  var colorScale = d3.scale.category20c()
+
+  var svg = d3.select("body")
+              .append("svg")
+              .attr("height", height)
+              .attr("width", width)
+
+  svg.selectAll("circle")
+      .data(d3.range(100000).map(Object))
+    .enter().append("circle")
+      .attr("r", 10)
+      .attr("cx", function(d,i) { return Math.random()*1000 })
+      .attr("cy", function(d,i) { return Math.random()*1000 })
+      .style("fill", function(d, i) { return colorScale(i); })
+
+</script>
+
+</body>
+</html>
