@@ -29,6 +29,10 @@ app.get('/test', function (req, res) {
   	res.render('test.html');
 });
 
+app.get('/barley', function (req, res) {
+  	res.render('barley.html');
+});
+
 //heroku assigns app port randomly. DONT WORRY ABOUT IT
 app.set('port', port);
 
