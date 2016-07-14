@@ -3,8 +3,8 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 5000
 var d3 = require('d3');
-var svg = require('./public/svg-generator');
-//var svg = require('./public/ukmap-generator');
+//var svg = require('./public/svg-generator');
+var svg = require('./public/ukmap-generator');
 
 // ejs is a way to make html from static file to a template.
 // This can be used to change from html to jade (now pug)
@@ -20,11 +20,11 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 
 // views is directory for all template files
-app.get('/', function (req, res) {
+//app.get('/', function (req, res) {
 
 	 //by default, ejs is trying to render templates from views folder
-  	res.render('d3_graph.html');
-});
+//  	res.render('d3_graph.html');
+//});
 
 app.get('/test', function (req, res) {
   	res.render('test.html');
@@ -34,11 +34,11 @@ app.get('/barley', function (req, res) {
   	res.render('barleyStarter.html');
 });
 
-//app.get('/', function (req, res) {
+app.get('/', function (req, res) {
 
 	// by default, ejs is trying to render templates from views folder
-  //	res.render('eu_referendum.html');
-  //});
+  	res.render('eu_referendum.html');
+  });
 
 
 //heroku assigns app port randomly. DONT WORRY ABOUT IT
